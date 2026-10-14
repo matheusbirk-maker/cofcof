@@ -49,6 +49,3 @@ Os erros seguem o formato `{ "erro": "mensagem", "campos": { "nome": "..." } }`.
 - **HTTP:** GET, POST, PUT, PATCH e DELETE.
 - **Acessibilidade:** Lighthouse 100 em todas as páginas (mobile e desktop). Inclui link "pular para o conteúdo", foco visível, contraste AA, `aria-invalid`/`aria-describedby` nos campos e modal com `<dialog>` nativo.
 
-## Imagens
-
-Por enquanto as imagens usam o componente `Placeholder`. Para os produtos, basta preencher o campo **Endereço da imagem** (URL ou caminho em `/public`, como `/produtos/latte.jpg`). Para as imagens fixas da Home, troque os `<Placeholder>` em `src/app/page.tsx`.
