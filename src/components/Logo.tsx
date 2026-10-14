@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 /** Logo circular que "vaza" para fora do cabeçalho, como na referência. */
@@ -6,11 +7,15 @@ export default function Logo({ className = "" }: { className?: string }) {
     <Link
       href="/"
       aria-label="cofcof: página inicial"
-      className={`flex size-20 shrink-0 -rotate-6 flex-col items-center justify-center rounded-full border-4 border-espresso bg-creme font-display leading-[0.85] text-espresso shadow-bloco transition hover:rotate-0 md:size-28 ${className}`}
+      className={`flex size-20 shrink-0 -rotate-6 items-center justify-center overflow-hidden rounded-full border-4 border-espresso bg-creme shadow-bloco transition hover:rotate-0 md:size-28 ${className}`}
     >
-      <IconeXicara className="mb-0.5 size-5 text-canela md:size-7" />
-      <span className="text-xl md:text-3xl">cof</span>
-      <span className="text-xl md:text-3xl">cof</span>
+      <Image
+        src="/icone.jpg"
+        alt=""
+        width={112}
+        height={112}
+        className="size-full object-cover"
+      />
     </Link>
   );
 }

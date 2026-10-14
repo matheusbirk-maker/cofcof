@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { classesBotao } from "@/components/Botao";
 import DestaquesHome from "@/components/DestaquesHome";
@@ -28,12 +29,15 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto w-full max-w-md">
-            <Placeholder
-              rotulo="Foto principal (ex.: copo de café da casa)"
-              borda={false}
-              fundo="bg-creme"
-              className="aspect-[4/5] w-full rounded-[2.5rem] border-4 border-espresso shadow-bloco"
-            />
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem] border-4 border-espresso bg-creme shadow-bloco">
+              <Image
+                src="/foto_principal.png"
+                alt="Foto principal da cafeteria"
+                fill
+                sizes="(min-width: 448px) 448px, 100vw"
+                className="object-cover"
+              />
+            </div>
             <SeloCircular texto="Grãos torrados na casa" className="absolute -right-2 -top-6 rotate-6 sm:-right-10" />
             <SeloCircular texto="Feito na hora, sempre!" className="absolute -bottom-6 -left-2 -rotate-6 sm:-left-10" />
           </div>
