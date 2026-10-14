@@ -81,7 +81,15 @@ export default function Home() {
       {/* Nossa história */}
       <section id="historia" aria-labelledby="titulo-historia" className="scroll-mt-4 border-t-4 border-espresso bg-latte">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2">
-          <Placeholder rotulo="Foto do espaço da cafeteria" fundo="bg-creme" className="aspect-video w-full rounded-3xl" />
+          <div className="relative aspect-video w-full overflow-hidden rounded-3xl">
+            <Image
+              src="/nossa_historia.png"
+              alt="Espaço da cafeteria"
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
           <div>
             <p className="font-extrabold uppercase tracking-wide text-canela">Nossa história</p>
             <h2 id="titulo-historia" className="font-display text-4xl md:text-5xl">
