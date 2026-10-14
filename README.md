@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# cofcof ☕
 
-## Getting Started
+Site da cafeteria **cofcof**: página inicial, cardápio com busca e filtros e uma área para gerenciar os produtos.
 
-First, run the development server:
+Feito com **Next.js 16 (App Router) + TypeScript + Tailwind CSS 4**. A API REST fica nas *Route Handlers* do próprio Next.js e usa dados mockados em memória.
+
+## Como rodar
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Outros comandos: `npm run build` (build de produção), `npm start` (serve o build) e `npm run lint`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Telas
 
-## Learn More
+| Rota | Descrição |
+| --- | --- |
+| `/` | Home: hero, categorias, destaques (via API) e "Nossa história" |
+| `/cardapio` | Catálogo com busca, filtro por categoria, ordenação, filtro de disponíveis e modal de detalhes |
+| `/admin` | Lista de produtos: pausar/retomar venda, editar e excluir (com confirmação) |
+| `/admin/novo` | Formulário de cadastro |
+| `/admin/[id]` | Formulário de edição |
 
-To learn more about Next.js, take a look at the following resources:
+## API REST (`src/app/api/produtos`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Método | Rota | O que faz | Respostas |
+| --- | --- | --- | --- |
+| GET | `/api/produtos?busca=&categoria=&destaque=true&disponivel=true&ordenar=` | Lista e filtra | 200, 400 |
+| GET | `/api/produtos/:id` | Busca um produto | 200, 404 |
+| POST | `/api/produtos` | Cria | 201, 400, 422 |
+| PUT | `/api/produtos/:id` | Substitui todos os dados | 200, 400, 404, 422 |
+| PATCH | `/api/produtos/:id` | Altera campos (ex.: `disponivel`) | 200, 400, 404, 422 |
+| DELETE | `/api/produtos/:id` | Exclui | 204, 404 |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Os erros seguem o formato `{ "erro": "mensagem", "campos": { "nome": "..." } }`. No front, `src/lib/api.ts` trata falha de rede, respostas fora do formato esperado e códigos HTTP, e mostra as mensagens em alertas, nos campos do formulário e em notificações.
 
-## Deploy on Vercel
+> Os dados ficam em memória (`src/lib/db.ts`) e voltam ao estado inicial quando o servidor reinicia.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Requisitos da atividade
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **3+ telas responsivas:** Home, Cardápio, Gerenciar e Formulário (novo/editar).
+- **Componentes reutilizáveis:** `CartaoProduto`, `Modal`, `Botao`, `CampoFormulario`, `Placeholder`, `Estados`, `SeloCircular`, entre outros, em `src/components`.
+- **Interações:** busca com *debounce*, filtro por categoria, ordenação, modal de detalhes, menu mobile, alternador de disponibilidade, modal de confirmação de exclusão e notificações.
+- **Formulário:** 8 campos (5 obrigatórios), validados no cliente e no servidor com as mesmas regras (`src/lib/validacao.ts`), com mensagem por campo e resumo de erros.
+- **HTTP:** GET, POST, PUT, PATCH e DELETE.
+- **Acessibilidade:** Lighthouse 100 em todas as páginas (mobile e desktop). Inclui link "pular para o conteúdo", foco visível, contraste AA, `aria-invalid`/`aria-describedby` nos campos e modal com `<dialog>` nativo.
+
+## Imagens
+
+Por enquanto as imagens usam o componente `Placeholder`. Para os produtos, basta preencher o campo **Endereço da imagem** (URL ou caminho em `/public`, como `/produtos/latte.jpg`). Para as imagens fixas da Home, troque os `<Placeholder>` em `src/app/page.tsx`.
