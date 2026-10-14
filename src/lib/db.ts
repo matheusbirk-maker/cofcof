@@ -12,12 +12,12 @@ const AGORA = "2026-09-24T12:00:00.000Z";
 
 const PRODUTOS_INICIAIS: ProdutoEntrada[] = [
   { nome: "Espresso", categoria: "cafes-quentes", preco: 7, tamanho: "50 ml", descricao: "Dose curta e intensa, extraída na hora com grãos torrados na casa.", imagem: "/espresso.png", disponivel: true, destaque: false },
-  { nome: "Cappuccino cofcof", categoria: "cafes-quentes", preco: 12.9, tamanho: "240 ml", descricao: "Espresso, leite vaporizado e espuma cremosa, finalizado com canela e cacau.", imagem: "/cappuccino.png", disponivel: true, destaque: true },
+  { nome: "Cappuccino cofcof", categoria: "cafes-quentes", preco: 12.9, tamanho: "240 ml", descricao: "Espresso, leite vaporizado e espuma cremosa, finalizado com canela e cacau.", imagem: "/capuccino.png", disponivel: true, destaque: true },
   { nome: "Latte de caramelo", categoria: "cafes-quentes", preco: 14.5, tamanho: "300 ml", descricao: "Café com bastante leite vaporizado e calda de caramelo salgado da casa.", imagem: "/latte_caramelo.png", disponivel: true, destaque: false },
   { nome: "Mocha", categoria: "cafes-quentes", preco: 15, tamanho: "300 ml", descricao: "Espresso com chocolate meio amargo, leite vaporizado e chantilly.", imagem: "/mocha.png", disponivel: true, destaque: false },
   { nome: "Cold brew", categoria: "cafes-gelados", preco: 13, tamanho: "400 ml", descricao: "Café extraído a frio por 18 horas: suave, adocicado e muito refrescante.", imagem: "/cold_brew.png", disponivel: true, destaque: true },
   { nome: "Frappé de doce de leite", categoria: "cafes-gelados", preco: 18.9, tamanho: "400 ml", descricao: "Café batido com gelo, doce de leite e leite, coberto com chantilly.", imagem: "/frappe.png", disponivel: true, destaque: true },
-  { nome: "Affogato", categoria: "cafes-gelados", preco: 16, tamanho: "1 taça", descricao: "Bola de sorvete de creme “afogada” em uma dose quente de espresso.", imagem: "/affogato.png", disponivel: true, destaque: false },
+  { nome: "Affogato", categoria: "cafes-gelados", preco: 16, tamanho: "1 taça", descricao: "Bola de sorvete de creme “afogada” em uma dose quente de espresso.", imagem: "/afogatto.png", disponivel: true, destaque: false },
   { nome: "Chai latte", categoria: "chas-e-outros", preco: 13.5, tamanho: "300 ml", descricao: "Chá preto com especiarias (canela, cardamomo e gengibre) e leite vaporizado.", imagem: "/chai_latte.png", disponivel: true, destaque: false },
   { nome: "Chocolate quente", categoria: "chas-e-outros", preco: 12, tamanho: "250 ml", descricao: "Chocolate cremoso feito com cacau 50% e um toque de baunilha.", imagem: "/choco_quente.png", disponivel: false, destaque: false },
   { nome: "Cookie de chocolate", categoria: "doces", preco: 8.5, tamanho: "1 unidade", descricao: "Cookie crocante por fora e macio por dentro, com gotas de chocolate belga.", imagem: "/cookie.png", disponivel: true, destaque: true },

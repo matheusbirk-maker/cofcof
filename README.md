@@ -49,3 +49,6 @@ Os erros seguem o formato `{ "erro": "mensagem", "campos": { "nome": "..." } }`.
 - **HTTP:** GET, POST, PUT, PATCH e DELETE.
 - **Acessibilidade:** Lighthouse 100 em todas as páginas (mobile e desktop). Inclui link "pular para o conteúdo", foco visível, contraste AA, `aria-invalid`/`aria-describedby` nos campos e modal com `<dialog>` nativo.
 
+# imagem
+
+As imagens inseridas neste README ilustram a interface do projeto, destacando a home, o cardápio e o painel administrativo. Elas ajudam a visualizar a identidade visual da cafeteria, a organização das telas e a experiência do usuário em cada fluxo principal da aplicação.
