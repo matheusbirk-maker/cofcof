@@ -4,7 +4,7 @@ Site da cafeteria **cofcof**: página inicial, cardápio com busca e filtros e u
 
 Feito com **Next.js 16 (App Router) + TypeScript + Tailwind CSS 4**. A API REST fica nas *Route Handlers* do próprio Next.js e usa dados mockados em memória.
 
-## Como rodar
+## como rodar em local host
 
 ```bash
 npm install
